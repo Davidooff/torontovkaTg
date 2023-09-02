@@ -1,0 +1,14 @@
+{
+  "method": "POST",
+  "headers": { "Content-Type": "application/json" },
+  "body": {
+    "keyword": "",
+    "categoryId": 8,
+    "subCategoryId": 20,
+    "paging": {
+      "pageSize": 1000,
+      "sortOrder": null,
+      "sortDirection": 1
+    }
+  }
+}

@@ -3,7 +3,7 @@ import MongoDB from "../mongo/main.js";
 import IAd from "../types/ad.js";
 import IPersonAd from "../types/personAd.js";
 
-const TOKEN = "6311069190:AAERmevFYRYKGM98Yt61PtYcQf7wT2LiJI4";
+const TOKEN = "";
 
 const bot = new TelegramBot(TOKEN, { polling: true });
 

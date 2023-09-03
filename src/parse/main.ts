@@ -2,11 +2,14 @@ import MongoDB from "../mongo/main.js";
 import getAll from "./urlsLogic/getAll.js";
 
 export default async () => {
-  const mongodb = new MongoDB();
-  await mongodb.connect();
-  const date = await getAll();
-  console.log(date.length);
-  await mongodb.update(date);
-
-  // console.log(await mongodb.getAfter(1, 2));
+  getAndUpdateTheDate();
+  setInterval(async () => getAndUpdateTheDate, 1000 * 60 * 5);
 };
+
+export async function getAndUpdateTheDate() {
+  console.log("get parsed");
+
+  const date = await getAll();
+  await MongoDB.update(date);
+  return date;
+}

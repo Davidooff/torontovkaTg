@@ -1,9 +1,9 @@
 import path from "path";
 import makeReq from "../../tools/makeReq.js";
 import { readFileSync } from "fs";
-import IReqOptions from "../../types/reqOptions.js";
 import { fileURLToPath } from "url";
 import IAd from "../../../types/ad.js";
+import moment from "moment";
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -24,8 +24,8 @@ export default async function torontovka(): Promise<IAd[]> {
     data = data.items;
     data = data.map((item) => {
       if (item.date && item.updated) {
-        item.date = new Date(item.date).getTime();
-        item.updated = new Date(item.updated).getTime();
+        item.date = moment(item.date).toDate().getTime();
+        item.updated = moment(item.updated).toDate().getTime();
       }
       return item;
     });
